@@ -2,9 +2,8 @@
   (:require [riemann.email :refer :all]))
 
 (def email (mailer {:host "smtp.gmail.com" 
-	         :user “mohnish111@gmail.com" 
-		     :pass “ilovebunnies" 
+	         :user "mohnish111@gmail.com" 
+		     :pass "ilovebunnies" 
              :tls true 
              :port 465 
-             :from “you@example.com"}))
-
+             :from "you@example.com"}))
