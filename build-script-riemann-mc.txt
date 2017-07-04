@@ -1,0 +1,34 @@
+#Change Hostname
+
+sudo hostname riemannmc
+cp -p /etc/hostname /etc/hostname_orignal
+>>/etc/hostname
+echo "riemannmc" >/etc/hostname
+
+echo "127.0.1.1     riemannmc" >/etc/hosts
+
+#Install Java
+sudo apt-get -y install default-jre
+
+#Installing Riemann
+wget https://aphyr.com/riemann/riemann_0.2.11_all.deb
+sudo dpkg -i riemann_0.2.11_all.deb
+
+#Start and Stop Riemann
+#sudo service riemann start
+#sudo service riemann stop
+
+#Running Interactively
+#sudo riemann bin /etc/riemann/riemann.config
+
+#Install Riemann Support Tools
+sudo apt-get -y install ruby ruby-dev build-essential zlib1g-dev
+
+#Send some event to Riemann
+#riemann-health
+
+#Mail Plugin Setup
+mailx install
+sudo mkdir -p /etc/riemann/examplecom/etc
+cd /etc/riemann/examplecom/etc
+wget 
