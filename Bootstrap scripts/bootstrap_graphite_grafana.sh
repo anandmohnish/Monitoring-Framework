@@ -1,3 +1,15 @@
+#Changing the hostname
+sudo hostname graphitea 
+cp -p /etc/hostname /etc/hostname_orignal
+>>/etc/hostname
+echo "graphitea" >/etc/hostname
+cp -p /etc/hosts /etc/hosts_orignal
+>>/etc/hosts
+echo "127.0.1.1     graphitea" >/etc/hosts
+echo "172.31.40.135     riemanna" >/etc/hosts
+echo "172.31.36.247     riemannmc" >/etc/hosts
+echo "172.31.42.123     logstasha" >/etc/hosts
+
 #Graphite Installation on Ubuntu :
 
 sudo apt-get update
@@ -21,30 +33,21 @@ sudo apt-get update
 #install graphite api package
 sudo apt-get install graphite-api
 
-
-
-
 #Installing Grafana
-
-#Installing Grafana on Ubuntu
-
 #add repository listing
 sudo sh -c "echo deb https://packagecloud.io/grafana/stable/debian/ wheezy main > /etc/apt/sources.list.d/packagecloud_grafana.list"
-
 #add package key
 curl https://packagecloud.io/gpg.key | sudo apt-key add -
-
 #update repository and install grafana
 sudo apt-get update
 sudo apt-get install -y apt-transport-https grafana
-
-
 ##Configuration Begins - include carbon.config from here
 
 
 #put below config on carbon.config
 ##Instead od doing this, you can also wget from your git repo
-wget 
+cd /etc/carbon
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/carbon.config
 
 
 #Configuring metric retentition for Carbon
@@ -56,32 +59,26 @@ wget
 ##On Ubuntu
 
 #download the init script for carbon-cache
+cd /tmp
 wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-cache-ubuntu.init
 
 #Copy and change permissions
-sudo cp carbon-cache-ubuntu.init /etc/init.d/carbon-cache 
+sudo cp /tmp/carbon-cache-ubuntu.init /etc/init.d/carbon-cache 
 sudo chmod 0755 /etc/init.d/carbon-cache
 
 #Enable the daemon
 sudo update-rc.d carbon-cache defaults
 
 #Configure init script for carbon.relay
+cd /tmp
 wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-relay-ubuntu.init 
-sudo cp carbon-relay-ubuntu.init /etc/init.d/carbon-relay
+sudo cp /tmp/carbon-relay-ubuntu.init /etc/init.d/carbon-relay
 sudo chmod 0755 /etc/init.d/carbon-relay
 sudo update-rc.d carbon-relay defaults
 
 #Configure carbon 
-
-$ sudo vi /etc/default/graphite-carbon
-
-
-Change the value of CARBON_CACHE_ENABLED=false to CARBON_CACHE_ENABLED=true .
-#set below variables in /etc/default/graphite-carbon
-CARBON_CACHE_ENABLED=true
-CARBON_CACHE_ENABLED=true
-RELAY_INSTANCES=1
-CACHE_INSTANCES=2
+cd /etc/default/
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-carbon
 
 ##Start carbon relay and carbon-cache
 sudo service carbon-relay start
@@ -104,7 +101,7 @@ sudo service carbon-cache start
 
 ##use wget and get the file
 cd /etc
-wget https://raw.githubusercontent.com/turnbullpress/aom-code/master/4/graphite/graphite-api.yaml
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-api.yaml
 
 #create some files
 sudo touch /var/lib/graphite/api_search_index
