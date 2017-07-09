@@ -25,7 +25,7 @@ sudo update-rc.d kibana defaults 95 10
 
 #Kibana config file - holds changes to Elasticsearch host in kibana.yml
 cd /tmp
-#Make changes to network.host after config is done.
+#Make changes to elasticsearch.url after config is done.
 sudo wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Logstash-A/kibana.yml
 sudo mv kibana.yml* kibana.yml
 cd /opt/kibana/config/

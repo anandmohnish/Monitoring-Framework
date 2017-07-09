@@ -28,7 +28,16 @@ sudo apt-get -y install ruby ruby-dev build-essential zlib1g-dev
 #riemann-health
 
 #Mail Plugin Setup
-mailx install
-sudo mkdir -p /etc/riemann/examplecom/etc
-cd /etc/riemann/examplecom/etc
-wget 
+#mailx install
+#apt-get -y install sendmail
+
+#Placing Riemann config file
+cd /etc/riemann/
+mv riemann.config riemann.config_orignal
+#cd /tmp
+#rm -fr riemann.config*
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Riemann-MC/riemann.config
+#mv riemann.config
+mkdir -p examplecom/etc
+cd examplecom/etc
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Riemann-A/email.clj
