@@ -1,3 +1,8 @@
+#Before running, change the permission on the files.
+#Execute chmod 755 bootstrap_graphite_grafana_MC.sh
+#Run the script by typing sh -x bootstrap_graphite_grafana_MC.sh
+#Reboot the host after installation is done.
+#!/bin/bash
 #Changing the hostname
 sudo hostname graphitemc
 cp -p /etc/hostname /etc/hostname_orignal
