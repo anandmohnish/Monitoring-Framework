@@ -1,0 +1,2 @@
+This folder contains various collectd plugins which need to placed in /etc/collectd.d/ directory on the host being monitored.
+The directory /etc/collectd.d/ is for Ubuntu only, the directory for Redhat is different.
