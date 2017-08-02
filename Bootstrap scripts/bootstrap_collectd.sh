@@ -35,16 +35,16 @@ sudo mkdir /etc/collectd.d
 ##Configuring the plugins for collectd
 #wget the various plugins from Github
 cd /tmp
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/collectd.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/cpu.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/df.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/memory.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/processes.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/swap.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/load.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/protocols.conf
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/config%20files/interface.conf
-wget https://github.com/anandmohnish/Monitoring-Framework/blob/master/Configuration%20Files/Collectd/config%20files/write_riemann.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/collectd.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/cpu.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/df.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/memory.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/processes.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/swap.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/load.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/protocols.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/interface.conf
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Collectd/collectd-config-files/write_riemann.conf
 
 
 #copy theplugin conf files to the specified direcotries
