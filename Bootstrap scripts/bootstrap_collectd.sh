@@ -5,7 +5,7 @@
 #Reboot the host after installation is done.
 #!/bin/bash
 #Changing the hostname
-sudo hostname graphitemc
+sudo hostname hosta
 cp -p /etc/hostname /etc/hostname_orignal
 >/etc/hostname
 echo "hosta" >/etc/hostname
