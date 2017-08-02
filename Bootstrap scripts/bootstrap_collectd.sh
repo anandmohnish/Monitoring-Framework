@@ -19,7 +19,7 @@ echo "172.31.39.166     graphitea">>/etc/hosts
 echo "172.31.9.100      hosta">>/etc/hosts
 
 #Installing collectd
-sudo add-apt-repository ppa:collectd/collectd-5.5
+sudo add-apt-repository ppa:collectd/collectd-5.5 -y
 
 #Update and Install collectd
 sudo apt-get update
