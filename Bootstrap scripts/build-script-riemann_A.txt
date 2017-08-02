@@ -38,3 +38,4 @@ wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/
 mkdir -p examplecom/etc
 cd examplecom/etc
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Riemann-A/email.clj
+wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Riemann-A/graphite.clj
