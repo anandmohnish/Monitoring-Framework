@@ -1,29 +1,29 @@
 #Changing the hostname
-sudo hostname graphitea 
+sudo hostname graphitea
 cp -p /etc/hostname /etc/hostname_orignal
->>/etc/hostname
+>/etc/hostname
 echo "graphitea" >/etc/hostname
 cp -p /etc/hosts /etc/hosts_orignal
->>/etc/hosts
-echo "127.0.1.1     graphitea" >/etc/hosts
-echo "172.31.40.135     riemanna" >/etc/hosts
-echo "172.31.36.247     riemannmc" >/etc/hosts
-echo "172.31.42.123     logstasha" >/etc/hosts
+>/etc/hosts
+echo "127.0.1.1     graphitea">>/etc/hosts
+echo "172.31.40.135     riemanna">>/etc/hosts
+echo "172.31.36.247     riemannmc">>/etc/hosts
+echo "172.31.42.123     logstasha">>/etc/hosts
 
 #Graphite Installation on Ubuntu :
 
 sudo apt-get update
+echo "graphite-carbon graphite-carbon/postrm_remove_databases boolean false" | sudo debconf-set-selections
 sudo apt-get -y install graphite-carbon
 
 #Installing Graphite API-
 #This API allows that graphana can connect to graphite.
- 
+
 #add repository APT key
 
 curl https://packagecloud.io/gpg.key | sudo apt-key add -
-  
+
 #add APT repository listing
-  
 sudo sh -c "echo deb https://packagecloud.io/exoscale/community/ubuntu/ trusty main > /etc/apt/sources.list.d/exoscale_community.list"
 
 #installing apt-transport package and updating
@@ -31,7 +31,12 @@ sudo apt-get install apt-transport-https
 sudo apt-get update
 
 #install graphite api package
-sudo apt-get install graphite-api
+#sudo apt-get install -y python-dev
+#sudo apt-get install -y libcairo2-dev
+#sudo apt-get install -y libffi-dev
+#sudo apt-get install -y python-pip
+#pip install graphite-api
+sudo apt-get -y install graphite-api
 
 #Installing Grafana
 #add repository listing
@@ -47,6 +52,7 @@ sudo apt-get install -y apt-transport-https grafana
 #put below config on carbon.config
 ##Instead od doing this, you can also wget from your git repo
 cd /etc/carbon
+mv carbon.conf carbon.conf_orignal
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/carbon.config
 
 
@@ -63,7 +69,7 @@ cd /tmp
 wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-cache-ubuntu.init
 
 #Copy and change permissions
-sudo cp /tmp/carbon-cache-ubuntu.init /etc/init.d/carbon-cache 
+sudo cp /tmp/carbon-cache-ubuntu.init /etc/init.d/carbon-cache
 sudo chmod 0755 /etc/init.d/carbon-cache
 
 #Enable the daemon
@@ -71,13 +77,14 @@ sudo update-rc.d carbon-cache defaults
 
 #Configure init script for carbon.relay
 cd /tmp
-wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-relay-ubuntu.init 
+wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-relay-ubuntu.init
 sudo cp /tmp/carbon-relay-ubuntu.init /etc/init.d/carbon-relay
 sudo chmod 0755 /etc/init.d/carbon-relay
 sudo update-rc.d carbon-relay defaults
 
 #Configure carbon 
 cd /etc/default/
+mv graphite-carbon graphite-carbon_orignal
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-carbon
 
 ##Start carbon relay and carbon-cache
@@ -101,6 +108,7 @@ sudo service carbon-cache start
 
 ##use wget and get the file
 cd /etc
+mv graphite-api.yaml graphite-api.yaml_orignal
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-api.yaml
 
 #create some files
