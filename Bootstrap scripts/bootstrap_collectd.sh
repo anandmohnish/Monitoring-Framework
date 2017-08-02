@@ -49,6 +49,8 @@ wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/
 
 #copy theplugin conf files to the specified direcotries
 #sudo rm /tmp/collectd.conf
+sudo cp /tmp/collectd.conf /etc/collectd/
+sudo rm /tmp/collectd.conf
 sudo cp /tmp/*.conf /etc/collectd.d/
 
 #Enabling and running collectd
