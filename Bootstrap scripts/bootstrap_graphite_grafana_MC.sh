@@ -1,3 +1,4 @@
+#Usage below.
 #Before running, change the permission on the files.
 #Execute chmod 755 bootstrap_graphite_grafana_MC.sh
 #Run the script by typing sh -x bootstrap_graphite_grafana_MC.sh
