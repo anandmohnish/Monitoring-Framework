@@ -1,7 +1,7 @@
 #Usage below.
 #Before running, change the permission on the files.
-#Execute chmod 755 bootstrap_graphite_grafana_MC.sh
-#Run the script by typing sh -x bootstrap_graphite_grafana_MC.sh
+#Execute chmod 755 bootstrap_collectd.sh
+#Run the script by typing sh -x bootstrap_collectd.sh
 #Reboot the host after installation is done.
 #!/bin/bash
 #Changing the hostname
