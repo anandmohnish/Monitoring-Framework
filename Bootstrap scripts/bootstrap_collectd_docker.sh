@@ -28,6 +28,9 @@ sudo apt-get -y install collectd
 #Installing unzip package
 sudo apt-get install unzip
 
+#Install pip
+sudo apt-get install python-pip -y
+
 #Installing Docker
 sudo apt-get install docker-ce -y
 
@@ -79,7 +82,7 @@ sudo unzip master.zip
 
 #Rename the Docker collectd plugin directory - 7.5
 sudo mv docker-collectd-plugin-master docker
-$ sudo rm master.zip
+sudo rm master.zip
 
 #Installing some additional python libraries - 7.6
 cd /usr/lib/collectd/docker
