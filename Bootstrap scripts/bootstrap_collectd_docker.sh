@@ -25,6 +25,8 @@ sudo add-apt-repository ppa:collectd/collectd-5.5 -y
 sudo apt-get update
 sudo apt-get -y install collectd
 
+#Installing unzip package
+sudo apt-get install unzip
 
 #Installing Docker
 sudo apt-get install docker-ce -y
