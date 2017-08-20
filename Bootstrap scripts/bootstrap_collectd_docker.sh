@@ -8,7 +8,7 @@
 sudo hostname dockera
 cp -p /etc/hostname /etc/hostname_orignal
 >/etc/hostname
-echo "hosta" >/etc/hostname
+echo "dockera" >/etc/hostname
 cp -p /etc/hosts /etc/hosts_orignal
 >/etc/hosts
 echo "127.0.1.1     dockera">>/etc/hosts
