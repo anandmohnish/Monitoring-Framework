@@ -1,12 +1,27 @@
+#Usage below.
+#Before running, change the permission on the files.
+#Execute chmod 755 bootstrap_elasticsearch-1.sh
+#Run the script by typing sh -x bootstrap_elasticsearch-1.sh
+#Reboot the host after installation is done.
+#!/bin/bash
+#Stop executing if error occurs
+set -e
+#Verbose output
+set -v
+
 #Changing the hostname
-sudo hostname logstasha 
+sudo hostname logstasha
 cp -p /etc/hostname /etc/hostname_orignal
->>/etc/hostname
+>/etc/hostname
 echo "logstasha" >/etc/hostname
 cp -p /etc/hosts /etc/hosts_orignal
->>/etc/hosts
-echo "127.0.1.1     logstasha" >/etc/hosts
-
+>/etc/hosts
+echo "127.0.1.1     logstasha">>/etc/hosts
+echo "172.31.40.135     riemanna">>/etc/hosts
+echo "172.31.36.247     riemannmc">>/etc/hosts
+echo "172.31.42.123     logstasha">>/etc/hosts
+echo "172.31.39.166     graphitea">>/etc/hosts
+echo "172.31.9.100      hosta">>/etc/hosts
 
 #Installing Logstash
 sudo apt-get -y install default-jre
