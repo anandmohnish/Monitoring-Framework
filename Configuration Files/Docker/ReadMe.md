@@ -2,10 +2,12 @@ This file contains steps to configure changes for Riemann in order for Riemann t
 
 1. Chaange graphite.clj on RiemannA host.
 cd /etc/riemann/examplecom/etc
+mv graphite.clj "graphite.clj_backup_$(date)"
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Docker/riemann-config/graphite.clj
 
 2. wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Docker/riemann-config/collectd.clj
 3. cd /etc/riemann
+mv riemann.config "riemann.config_backup_$(date)"
 wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Docker/riemann-config/riemann.config
 Below steps should be carried out on GraphiteA host.
 
