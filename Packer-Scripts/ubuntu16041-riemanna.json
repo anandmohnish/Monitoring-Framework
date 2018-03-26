@@ -71,7 +71,7 @@
   {
       "type": "shell",
       "script": "../scripts/post_install_vagrant.sh"
-    }
+    },
   {
         "type": "file",
         "source": "../scripts",
