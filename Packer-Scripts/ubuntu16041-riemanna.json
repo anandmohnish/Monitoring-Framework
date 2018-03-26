@@ -71,25 +71,7 @@
   {
       "type": "shell",
       "script": "../scripts/post_install_vagrant.sh"
-    },
-  {
-        "type": "file",
-        "source": "../scripts",
-        "destination": "/tmp"
-    },
-  {
-        "type": "file",
-        "source": "../webpage",
-        "destination": "/tmp/data"
-},
-  {
-   "type": "shell",
-   "script": "../scripts/provision-apache.sh"
-},
-{
-        "type": "shell",
-        "script": "../scripts/configure_apache.sh"
-}
+    }
 ],
   "post-processors": [
  {
