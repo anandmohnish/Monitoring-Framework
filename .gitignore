@@ -45,3 +45,24 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+packer_cache/
+*.box
+.vagrant/
+*.vdi
+output*/
+*~
+*.vmdk
+*.ovf
+build/*
+.vagrant/*
+.cfg.*
+variables.json
+*.swp
+data/
+*.log
+Vagrantfile
+*.tar
+id_rsa_github_deploy_key
+packer/build/xenial64/ubuntu-xenial-16.04-cloudimg-console.log
