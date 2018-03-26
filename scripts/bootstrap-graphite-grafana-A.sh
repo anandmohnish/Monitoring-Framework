@@ -1,14 +1,3 @@
-#Changing the hostname
-sudo hostname graphitea
-cp -p /etc/hostname /etc/hostname_orignal
->/etc/hostname
-echo "graphitea" >/etc/hostname
-cp -p /etc/hosts /etc/hosts_orignal
->/etc/hosts
-echo "127.0.1.1     graphitea">>/etc/hosts
-echo "172.31.40.135     riemanna">>/etc/hosts
-echo "172.31.36.247     riemannmc">>/etc/hosts
-echo "172.31.42.123     logstasha">>/etc/hosts
 
 #Graphite Installation on Ubuntu :
 
@@ -48,12 +37,14 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https grafana
 ##Configuration Begins - include carbon.config from here
 
+git clone https://github.com/anandmohnish/Monitoring-Framework.git
 
 #put below config on carbon.config
 ##Instead od doing this, you can also wget from your git repo
 cd /etc/carbon
-mv carbon.conf carbon.conf_orignal
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/carbon.config
+sudo mv carbon.conf carbon.conf_orignal
+sudo cp ~/Monitoring-Framework/Configuration-Files/Graphite-A/carbon.conf .
+#wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/carbon.config
 
 
 #Configuring metric retentition for Carbon
@@ -65,27 +56,28 @@ wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/
 ##On Ubuntu
 
 #download the init script for carbon-cache
-cd /tmp
-wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-cache-ubuntu.init
+#cd /tmp
+#wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-cache-ubuntu.init
 
 #Copy and change permissions
-sudo cp /tmp/carbon-cache-ubuntu.init /etc/init.d/carbon-cache
+sudo cp ~/Monitoring-Framework/Configuration-Files/Graphite-A/graphite/carbon-cache-ubuntu.init /etc/init.d/carbon-cache
 sudo chmod 0755 /etc/init.d/carbon-cache
 
 #Enable the daemon
 sudo update-rc.d carbon-cache defaults
 
 #Configure init script for carbon.relay
-cd /tmp
-wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-relay-ubuntu.init
-sudo cp /tmp/carbon-relay-ubuntu.init /etc/init.d/carbon-relay
+#cd /tmp
+#wget https://raw.githubusercontent.com/jamtur01/aom-code/master/4/graphite/carbon-relay-ubuntu.init
+sudo cp ~/Monitoring-Framework/Configuration-Files/Graphite-A/graphite/carbon-relay-ubuntu.init /etc/init.d/carbon-relay
 sudo chmod 0755 /etc/init.d/carbon-relay
 sudo update-rc.d carbon-relay defaults
 
-#Configure carbon 
+#Configure carbon
 cd /etc/default/
 mv graphite-carbon graphite-carbon_orignal
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-carbon
+sudo cp ~/Monitoring-Framework/Configuration-Files/Graphite-A/graphite-carbon .
+#wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-carbon
 
 ##Start carbon relay and carbon-cache
 sudo service carbon-relay start
@@ -109,7 +101,8 @@ sudo service carbon-cache start
 ##use wget and get the file
 cd /etc
 mv graphite-api.yaml graphite-api.yaml_orignal
-wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-api.yaml
+sudo cp ~/Monitoring-Framework/Configuration-Files/Graphite-A/graphite-api.yaml .
+#wget https://raw.githubusercontent.com/anandmohnish/Monitoring-Framework/master/Configuration%20Files/Graphite-A/graphite-api.yaml
 
 #create some files
 sudo touch /var/lib/graphite/api_search_index
@@ -124,12 +117,12 @@ sudo service graphite-api start
 
 #Testing the Graphite-API - include screenshot
 
-Open the URL to test it
-http://graphitea:8888/render?target=test
+#Open the URL to test it
+#http://graphitea:8888/render?target=test
 
 ###Configuring Grafana
 
-#Start Grafana service - both ubuntu and redhat 
+#Start Grafana service - both ubuntu and redhat
 #service runs on port 3000
 sudo service grafana-server start
 
@@ -155,12 +148,12 @@ sudo service grafana-server start
 
 sudo dpkg-reconfigure tzdata
 
-Select none of the above and press Enter
+#Select none of the above and press Enter
 
 
-Select UTC and press enter
+#Select UTC and press enter
 
-Or on ubuntu 14 and later - use
+#Or on ubuntu 14 and later - use
 timedatectl set-timezone Etc/UTC
 
 #Installing NTP on ubuntu
@@ -172,4 +165,3 @@ sudo ntpdate -s ntp.ubuntu.com
 
 ##Check status of NTP service on both ubuntu and redhat
 sudo ntpq -p
-
