@@ -1,3 +1,4 @@
+{
 "builders": [{
     "name": "riemann-a",
     "type": "virtualbox-iso",
