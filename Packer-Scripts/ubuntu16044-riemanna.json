@@ -67,7 +67,7 @@
     },
     {
         "type": "shell",
-        "script": "../scripts/post_install_vagrant.sh"
+        "script": "../scripts/bootstrap-riemann-a.sh"
       }
 ],
 "post-processors": [
