@@ -1,0 +1,15 @@
+127.0.0.1       localhost
+127.0.1.1       hosta
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+192.168.1.100   riemanna
+192.168.1.101   riemannb
+792.168.1.102   riemannmc
+192.168.1.104   graphitea
+192.168.1.105   graphiteb
+192.168.1.106   graphitemc
+192.168.1.107   hosta
+192.168.1.108   hostb
